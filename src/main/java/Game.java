@@ -1,21 +1,22 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
 
-    private ArrayList<Player> players;
+    private HashMap<String, Player> players;
 
     public Game() {
-        this.players = new ArrayList<>();
+        this.players = new HashMap<>();
     }
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public int round(String playerName1, String playerName2) {
 
-        Player player1 = findByName(playerName1);
-        Player player2 = findByName(playerName2);
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
 
         if (player1 == null) {
             throw new NotRegisteredException("Player '" + playerName1 + "' is not registered");
@@ -32,13 +33,13 @@ public class Game {
             return 0;
         }
     }
-
-    public Player findByName(String name) {
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
-                return player;
-            }
-        }
-        return null;
-    }
 }
+
+//    public Player findByName(String name) {
+//        for (Player player : players) {
+//            if (player.getName().equals(name)) {
+//                return player;
+//            }
+//        }
+//        return null;
+//    }
