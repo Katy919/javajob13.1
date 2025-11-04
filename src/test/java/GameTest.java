@@ -62,6 +62,7 @@ public class GameTest {
             game.round("Petya", "Kate");
         });
     }
+
     @Test
     void shouldReturnCorrectId() {
         Game game = new Game();
