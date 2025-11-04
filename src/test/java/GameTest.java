@@ -46,7 +46,6 @@ public class GameTest {
         Game game = new Game();
         game.register(player1);
 
-
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Petya", "Kate");
         });
@@ -56,12 +55,12 @@ public class GameTest {
     public void shouldNobodyRegisteredException() {
         Game game = new Game();
         game.register(player2);
-
-
+        
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Petya", "Kate");
         });
     }
+
     @Test
     void shouldReturnCorrectId() {
         Game game = new Game();
